@@ -3,7 +3,9 @@
 
 #include <string>
 
+using namespace std;
+
 // Return the type of the triangle
-std::string Triangle(int a, int b, int c);
+string Triangle(int a, int b, int c);
 
 #endif
