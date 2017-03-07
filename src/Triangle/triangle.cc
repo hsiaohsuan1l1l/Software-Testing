@@ -6,7 +6,7 @@ string Triangle(int a, int b, int c) {
         return "NotATriangle";
     if (a + b < c || a + c < b || b + c < a)
         return "NotATriangle";
-    if (a == b == c)
+    if (a == b && b == c)
         return "Equilateral";
     if (a == b || a == c || b == c)
         return "Isosceles";
