@@ -78,3 +78,35 @@ TEST(ECTest, StrongRobust) {
     // Class11: a <= 0 and b <= 0 and c <= 0
     EXPECT_EQ("NotATriangle", Triangle(-1, -1, -1));
 }
+
+// Edge Test
+TEST(EdgeTest, WeakNormal) {
+    // Class1: Equilateral with a,b,c = valid min
+    EXPECT_EQ("Equilateral", Triangle(1, 1, 1));
+    // Class2: Equilateral with a,b,c = valid near min
+    EXPECT_EQ("Equilateral", Triangle(2, 2, 2));
+    // Class3: Isosceles with a,b = valid min
+    EXPECT_EQ("Isosceles", Triangle(2, 2, 3));
+    // Class4: Isosceles with a,b = valid near min
+    EXPECT_EQ("Isosceles", Triangle(3, 3, 5));
+    // Class5: Scalene with a = valid min
+    EXPECT_EQ("Scalene", Triangle(2, 3, 4));
+    // Class6: Scalene with a = valid near min
+    EXPECT_EQ("Scalene", Triangle(3, 4, 5));
+    // Class7: NotATriangle with a = valid min
+    EXPECT_EQ("NotATriangle", Triangle(1, 2, 3));
+    // Class8: NotATriangle with a = valid near min
+    EXPECT_EQ("NotATriangle", Triangle(2, 2, 5));
+}
+
+TEST(EdgeTest, WeakRobust) {
+    // Similar with tests in ECTest.WeakRobust when choosing boundary
+}
+
+TEST(EdgeTest, StrongNormal) {
+    // No valid subintervals exist, strong normal = weak normal
+}
+
+TEST(EdgeTest, StrongRobust) {
+    // Similar with tests in ECTest.StrongRobust when choosing boundary
+}
