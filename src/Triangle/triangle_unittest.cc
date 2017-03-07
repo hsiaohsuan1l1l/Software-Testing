@@ -42,3 +42,39 @@ TEST(BVTest, StrongRobust) {
     EXPECT_EQ("NotATriangle", Triangle(100, 0, 0));
     EXPECT_EQ("NotATriangle", Triangle(0, 0, 0));
 }
+
+// Equivalence Class Test
+TEST(ECTest, WeakNormal) {
+    // Class1: Equilateral
+    EXPECT_EQ("Equilateral", Triangle(5, 5, 5));
+    // Class2: Isosceles
+    EXPECT_EQ("Isosceles", Triangle(3, 3, 5));
+    // Class3: Scalene
+    EXPECT_EQ("Scalene", Triangle(3, 4, 5));
+    // Class4: NotATriangle
+    EXPECT_EQ("NotATriangle", Triangle(2, 3, 5));
+}
+
+TEST(ECTest, WeakRobust) {
+    // Class5: a <= 0
+    EXPECT_EQ("NotATriangle", Triangle(-1, 5, 5));
+    // Class6: b <= 0
+    EXPECT_EQ("NotATriangle", Triangle(5, -1, 5));
+    // Class7: c <= 0
+    EXPECT_EQ("NotATriangle", Triangle(5, 5, -1));
+}
+
+TEST(ECTest, StrongNormal) {
+    // No valid subintervals exist, strong normal = weak normal 
+}
+
+TEST(ECTest, StrongRobust) {
+    // Class8: a <= 0 and b <= 0
+    EXPECT_EQ("NotATriangle", Triangle(-1, -1, 5));
+    // Class9: a <= 0 and c <= 0
+    EXPECT_EQ("NotATriangle", Triangle(-1, 5, -1));
+    // Class10: b <= 0 and c <= 0
+    EXPECT_EQ("NotATriangle", Triangle(5, -1, -1));
+    // Class11: a <= 0 and b <= 0 and c <= 0
+    EXPECT_EQ("NotATriangle", Triangle(-1, -1, -1));
+}
