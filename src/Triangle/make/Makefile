@@ -14,10 +14,10 @@
 
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file.
-GTEST_DIR = ~/Documents/googletest-master/googletest
+GTEST_DIR = /home/hhchen/Documents/googletest-master/googletest
 
 # Where to find user code.
-USER_DIR = ~/Documents/Software-Testing/src/Triangle
+USER_DIR = /home/hhchen/Documents/Software-Testing/src/Triangle
 
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
