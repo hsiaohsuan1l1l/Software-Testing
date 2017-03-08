@@ -1,6 +1,6 @@
 #include "triangle.h"
 
-// Return Equilateral or Isosceles or NotATriangle
+// Return Equilateral or Isosceles or NotATriangle or Scalene
 string Triangle(int a, int b, int c) {
     if (a <= 0 || b <= 0 || c <= 0)
         return "NotATriangle";
