@@ -179,3 +179,98 @@ TEST(ECTest, StrongRobust) {
     // Class41: Y3, M5, D6
     EXPECT_EQ("InvalidInput", NextDate(-1, 15, 33));
 }
+
+// Edge Test
+TEST(EdgeTest, WeakNormal) {
+    // Class1: Y1, M1, D1
+    EXPECT_EQ("4.4.2", NextDate(4, 4, 1));
+    // Class2: Y2, M2, D2
+    EXPECT_EQ("1.1.30", NextDate(1, 1, 29));
+    // Class3: Y1, M3, D3
+    EXPECT_EQ("InvalidInput", NextDate(4, 2, 30));
+    // Class4: Y2, M1, D4
+    EXPECT_EQ("InvalidInput", NextDate(1, 4, 31));
+}
+
+TEST(EdgeTest, WeakRobust) {
+    // Class5: Y3, M1, D1
+    EXPECT_EQ("InvalidInput", NextDate(0, 4, 1));
+    // Class6: Y1, M4, D1
+    EXPECT_EQ("InvalidInput", NextDate(4, 0, 1));
+    // Class7: Y1, M5, D1
+    EXPECT_EQ("InvalidInput", NextDate(4, 13, 1));
+    // Class8: Y1, M1, D5
+    EXPECT_EQ("InvalidInput", NextDate(4, 4, 0));
+    // Class9: Y1, M1, D6
+    EXPECT_EQ("InvalidInput", NextDate(4, 4, 32));
+}
+
+TEST(EdgeTest, StrongNormal) {
+    // Class10: Y1, M1, D2
+    EXPECT_EQ("4.4.30", NextDate(4, 4, 29));
+    // Class11: Y1, M1, D3
+    EXPECT_EQ("4.5.1", NextDate(4, 4, 30));
+    // Class12: Y1, M1, D4
+    EXPECT_EQ("InvalidInput", NextDate(4, 4, 31));
+    // Class13: Y1, M2, D1
+    EXPECT_EQ("4.1.2", NextDate(4, 1, 1));
+    // Class14: Y1, M2, D2
+    EXPECT_EQ("4.1.30", NextDate(4, 1, 29));
+    // Class15: Y1, M2, D3
+    EXPECT_EQ("4.1.31", NextDate(4, 1, 30));
+    // Class16: Y1, M2, D4
+    EXPECT_EQ("4.2.1", NextDate(4, 1, 31));
+    // Class17: Y1, M3, D1
+    EXPECT_EQ("4.2.2", NextDate(4, 2, 1));
+    // Class18: Y1, M3, D2
+    EXPECT_EQ("4.3.1", NextDate(4, 2, 29));
+    // Class19: Y1, M3, D4
+    EXPECT_EQ("InvalidInput", NextDate(4, 2, 31));
+    // Class20: Y2, M1, D1
+    EXPECT_EQ("1.4.2", NextDate(1, 4, 1));
+    // Class21: Y2, M1, D2
+    EXPECT_EQ("1.4.30", NextDate(1, 4, 29));
+    // Class22: Y2, M1, D3
+    EXPECT_EQ("1.5.1", NextDate(1, 4, 30));
+    // Class23: Y2, M2, D1
+    EXPECT_EQ("1.1.2", NextDate(1, 1, 1));
+    // Class24: Y2, M2, D3
+    EXPECT_EQ("1.1.31", NextDate(1, 1, 30));
+    // Class25: Y2, M2, D4
+    EXPECT_EQ("1.2.1", NextDate(1, 1, 31));
+    // Class26: Y2, M3, D1
+    EXPECT_EQ("1.2.2", NextDate(1, 2, 1));
+    // Class27: Y2, M3, D2
+    EXPECT_EQ("InvalidInput", NextDate(1, 2, 29));
+    // Class28: Y2, M3, D3
+    EXPECT_EQ("InvalidInput", NextDate(1, 2, 30));
+    // Class29: Y2, M3, D4
+    EXPECT_EQ("InvalidInput", NextDate(1, 2, 31));
+}
+
+TEST(EdgeTest, StrongRobust) {
+    // Class30: Y3, M4, D1
+    EXPECT_EQ("InvalidInput", NextDate(0, 0, 1));
+    // Class31: Y3, M5, D1
+    EXPECT_EQ("InvalidInput", NextDate(0, 13, 1));
+    // Class32: Y3, M1, D5
+    EXPECT_EQ("InvalidInput", NextDate(0, 4, 0));
+    // Class33: Y3, M1, D6
+    EXPECT_EQ("InvalidInput", NextDate(0, 4, 32));
+    // Class34: Y1, M4, D5
+    EXPECT_EQ("InvalidInput", NextDate(4, 0, 0));
+    // Class35: Y1, M4, D6
+    EXPECT_EQ("InvalidInput", NextDate(4, 0, 32));
+    // Class36: Y1, M5, D5
+    EXPECT_EQ("InvalidInput", NextDate(4, 13, 0));
+    // Class37: Y1, M5, D6
+    EXPECT_EQ("InvalidInput", NextDate(4, 13, 32));
+    // Class38: Y3, M4, D5
+    EXPECT_EQ("InvalidInput", NextDate(0, 0, 0));
+    // Class39: Y3, M4, D6
+    EXPECT_EQ("InvalidInput", NextDate(0, 0, 32));
+    // Class40: Y3, M5, D5
+    EXPECT_EQ("InvalidInput", NextDate(0, 13, 0));
+    // Class41: Y3, M5, D6
+    EXPECT_EQ("InvalidInput", NextDate(0, 13, 32));
+}
