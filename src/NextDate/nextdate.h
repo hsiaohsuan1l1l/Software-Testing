@@ -7,6 +7,6 @@
 using namespace std;
 
 // Return the next date
-string NextDate(int a, int b, int c);
+string NextDate(int y, int m, int d);
 
 #endif

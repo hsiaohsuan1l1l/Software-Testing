@@ -1,6 +1,6 @@
 #include "nextdate.h"
 
-//
-string NextDate(int a, int b, int c) {
-
+// Return the next date of input date
+string NextDate(int y, int m, int d) {
+    return "";
 }
