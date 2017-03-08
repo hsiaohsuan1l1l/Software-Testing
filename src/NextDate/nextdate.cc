@@ -4,9 +4,23 @@
 string NextDate(int y, int m, int d) {
     stringstream ss;
     string nextdate, year, month, day;
+    
+    // Validate the input
+    if (y < 1 || m < 1 || m > 12 || d < 1 || d > 31)
+        return "InvalidInput";
 
     // Generate next date
-    d++;
+    if (d + 1 > 31) {
+        if (m + 1 > 12) {
+            y++;
+            m = d = 1;
+        } else {
+            m++;
+            d = 1;
+        }
+    } else {
+        d++;
+    }
 
     // Convert int to string
     ss << y;
