@@ -274,3 +274,71 @@ TEST(EdgeTest, StrongRobust) {
     // Class41: Y3, M5, D6
     EXPECT_EQ("InvalidInput", NextDate(0, 13, 32));
 }
+
+// Decision Table Based Test
+    // c1: Year in ? 
+    // c2: Month in ?
+    // c3: Day in ?
+    //----------------
+    // Y1: leap year
+    // Y2: common year
+    // M1: month has 30 days
+    // M2: month has 31 days except Dec.
+    // M3: Dec.
+    // M4: Feb.
+    // D1: 1 <= d <= 27
+    // D2: d = 28
+    // D3: d = 29
+    // D4: d = 30
+    // D5: d = 31
+TEST(DTBTest, Rule1) { // c2=M1, c3=D1,D2,D3
+    EXPECT_EQ("2001.4.16", NextDate(2001, 4, 15));
+}
+
+TEST(DTBTest, Rule2) { // c2=M1, c3=D4
+    EXPECT_EQ("2001.5.1", NextDate(2001, 4, 30));
+}
+
+TEST(DTBTest, Rule3) { // c2=M1, c3=D5
+    EXPECT_EQ("InvalidInput", NextDate(2001, 4, 31));
+}
+
+TEST(DTBTest, Rule4) { // c2=M2, c3=D1,D2,D3,D4
+    EXPECT_EQ("2001.1.16", NextDate(2001, 1, 15));
+}
+
+TEST(DTBTest, Rule5) { // c2=M2, c3=D5
+    EXPECT_EQ("2001.2.1", NextDate(2001, 1, 31));
+}
+
+TEST(DTBTest, Rule6) { // c2=M3, c3=D1,D2,D3,D4
+    EXPECT_EQ("2001.12.16", NextDate(2001, 12, 15));
+}
+
+TEST(DTBTest, Rule7) { // c2=M3, c3=D5
+    EXPECT_EQ("2002.1.1", NextDate(2001, 12, 31));
+}
+
+TEST(DTBTest, Rule8) { // c2=M4, c3=D1
+    EXPECT_EQ("2001.2.16", NextDate(2001, 2, 15));
+}
+
+TEST(DTBTest, Rule9) { // c1=Y1, c2=M4, c3=D2
+    EXPECT_EQ("2004.2.29", NextDate(2004, 2, 28));
+}
+
+TEST(DTBTest, Rule10) { // c1=Y2, c2=M4, c3=D2
+    EXPECT_EQ("2001.3.1", NextDate(2001, 2, 28));
+}
+
+TEST(DTBTest, Rule11) { // c1=Y1, c2=M4, c3=D3
+    EXPECT_EQ("2004.3.1", NextDate(2004, 2, 29));
+}
+
+TEST(DTBTest, Rule12) { // c1=Y2, c2=M4, c3=D3
+    EXPECT_EQ("InvalidInput", NextDate(2001, 2, 29));
+}
+
+TEST(DTBTest, Rule13) { // c2=M4, c3=D4,D5
+    EXPECT_EQ("InvalidInput", NextDate(2001, 2, 30));
+}
