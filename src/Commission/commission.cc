@@ -6,6 +6,10 @@ string Commission(int l, int s, int b) {
     string comm_str;
     double sales, comm;
     
+    // Validate the input
+    if (l < 1 | l > 70 | s < 1 | s > 80 | b < 1 | b > 90)
+        return "InvalidInput";
+
     // Calculate the sales
     sales = l * 45 + s * 30 + b * 25;
 
