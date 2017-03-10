@@ -7,7 +7,7 @@
 
 using namespace std;
 
-// Return the sales
+// Return the commission
 string Commission(int l, int s, int b);
 
 #endif

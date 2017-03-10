@@ -1,6 +1,6 @@
 #include "commission.h"
 
-// Return the sales value
+// Return the commission value
 string Commission(int l, int s, int b) {
     stringstream ss;
     string comm_str;
