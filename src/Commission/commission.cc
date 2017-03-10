@@ -27,6 +27,11 @@ string Commission(int l, int s, int b) {
     ss.str("");
     ss.clear();
     comm_str = "$" + comm_str;
+    
+    if (comm_str[comm_str.size() - 1] == '0')
+        comm_str.erase(comm_str.end() - 1);
+    if (comm_str[comm_str.size() - 1] == '0')
+        comm_str.erase(comm_str.find('.'), 2);
 
     return comm_str;
 }
