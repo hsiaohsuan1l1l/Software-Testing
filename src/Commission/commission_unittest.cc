@@ -73,3 +73,83 @@ TEST(BVTest, StrongRobust) {
     EXPECT_EQ("InvalidInput", Commission(71, 81, 0));
     EXPECT_EQ("InvalidInput", Commission(71, 81, 91));
 }
+
+// Equivalence Class Test
+    // L1: 1 <= l <= 70
+    // L2: l = -1
+    // L3: l = 0 or l < -1 (invalid)
+    // L4: l > 70 (invalid)
+    // S1: 1 <= s <= 80
+    // S2: s < 1 (invalid)
+    // S3: s > 80 (invalid)
+    // B1: 1 <= b <= 90
+    // B2: b < 1 (invalid)
+    // B3: b > 90 (invalid)
+TEST(ECTest, WeakNormal) {
+    // Class1: L1, S1, B1
+    EXPECT_EQ("$640", Commission(35, 40, 45));
+    // Class2: L2, S1, B1
+    EXPECT_EQ("ProgramTerminates", Commission(-1, 40, 45));
+}
+
+TEST(ECTest, WeakRobust) {
+    // Class3: L3, S1, B1
+    EXPECT_EQ("InvalidInput", Commission(-2, 40, 45));
+    // Class4: L4, S1, B1
+    EXPECT_EQ("InvalidInput", Commission(71, 40, 45));
+    // Class5: L1, S2, B1
+    EXPECT_EQ("InvalidInput", Commission(35, -1, 45));
+    // Class6: L1, S3, B1
+    EXPECT_EQ("InvalidInput", Commission(35, 81, 45));
+    // Class7: L1, S1, B2
+    EXPECT_EQ("InvalidInput", Commission(35, 40, -1));
+    // Class8: L1, S1, B3
+    EXPECT_EQ("InvalidInput", Commission(35, 40, 91));
+}
+
+TEST(ECTest, StrongNormal) {
+    // No valid subintervals exist, strong normal = weak normal
+}
+
+TEST(ECTest, StrongRobust) {
+    // Class9: L3, S2, B1
+    EXPECT_EQ("InvalidInput", Commission(-2, -1, 45));
+    // Class10: L3, S3, B1
+    EXPECT_EQ("InvalidInput", Commission(-2, 81, 45));
+    // Class11: L4, S2, B1
+    EXPECT_EQ("InvalidInput", Commission(71, -1, 45));
+    // Class12: L4, S3, B1
+    EXPECT_EQ("InvalidInput", Commission(71, 81, 45));
+    // Class13: L3, S1, B2
+    EXPECT_EQ("InvalidInput", Commission(-2, 40, -1));
+    // Class14: L3, S1, B3
+    EXPECT_EQ("InvalidInput", Commission(-2, 40, 91));
+    // Class15: L4, S1, B2
+    EXPECT_EQ("InvalidInput", Commission(71, 40, -1));
+    // Class16: L4, S1, B3
+    EXPECT_EQ("InvalidInput", Commission(71, 40, 91));
+    // Class17: L1, S2, B2
+    EXPECT_EQ("InvalidInput", Commission(35, -1, -1));
+    // Class18: L1, S2, B3
+    EXPECT_EQ("InvalidInput", Commission(35, -1, 91));
+    // Class19: L1, S3, B2
+    EXPECT_EQ("InvalidInput", Commission(35, 81, -1));
+    // Class20: L1, S3, B3
+    EXPECT_EQ("InvalidInput", Commission(35, 81, 91));
+    // Class21: L3, S2, B2
+    EXPECT_EQ("InvalidInput", Commission(-2, -1, -1));
+    // Class22: L3, S2, B3
+    EXPECT_EQ("InvalidInput", Commission(-2, -1, 91));
+    // Class23: L3, S3, B2
+    EXPECT_EQ("InvalidInput", Commission(-2, 81, -1));
+    // Class24: L3, S3, B3
+    EXPECT_EQ("InvalidInput", Commission(-2, 81, 91));
+    // Class25: L4, S2, B2
+    EXPECT_EQ("InvalidInput", Commission(71, -1, -1));
+    // Class26: L4, S2, B3
+    EXPECT_EQ("InvalidInput", Commission(71, -1, 91));
+    // Class27: L4, S3, B2
+    EXPECT_EQ("InvalidInput", Commission(71, 81, -1));
+    // Class28: L4, S3, B3
+    EXPECT_EQ("InvalidInput", Commission(71, 81, 91));
+}
