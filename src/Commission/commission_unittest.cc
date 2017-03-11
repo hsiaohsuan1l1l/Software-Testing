@@ -233,3 +233,6 @@ TEST(EdgeTest, StrongRobust) {
     // Class32: L2, S3, B3
     EXPECT_EQ("InvalidInput", Commission(-1, 81, 91));
 }
+
+// Decision Table Based Test
+// Skip: not suitable for non-decision-based problem
