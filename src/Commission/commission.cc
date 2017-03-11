@@ -7,7 +7,7 @@ string Commission(int l, int s, int b) {
     double sales, comm;
 
     // Validate the input
-    if (l < -1 | l == 0 | l > 70 | s < 1 | s > 80 | b < 1 | b > 90)
+    if (l < -1 || l == 0 || l > 70 || s < 1 || s > 80 || b < 1 || b > 90)
         return "InvalidInput";
     else if (l == -1)
         return "ProgramTerminates";
