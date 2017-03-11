@@ -153,3 +153,83 @@ TEST(ECTest, StrongRobust) {
     // Class28: L4, S3, B3
     EXPECT_EQ("InvalidInput", Commission(71, 81, 91));
 }
+
+// Edge Test
+TEST(EdgeTest, WeakNormal) {
+    // Class1: L1, S1, B1
+    EXPECT_EQ("$10", Commission(1, 1, 1));
+    // Class2: L2, S1, B1
+    EXPECT_EQ("ProgramTerminates", Commission(-1, 1, 1));
+}
+
+TEST(EdgeTest, WeakRobust) {
+    // Class3: L3, S1, B1
+    EXPECT_EQ("InvalidInput", Commission(0, 1, 1));
+    // Class4: L4, S1, B1
+    EXPECT_EQ("InvalidInput", Commission(71, 1, 1));
+    // Class5: L1, S2, B1
+    EXPECT_EQ("InvalidInput", Commission(1, 0, 1));
+    // Class6: L1, S3, B1
+    EXPECT_EQ("InvalidInput", Commission(1, 81, 1));
+    // Class7: L1, S1, B2
+    EXPECT_EQ("InvalidInput", Commission(1, 1, 0));
+    // Class8: L1, S1, B3
+    EXPECT_EQ("InvalidInput", Commission(1, 1, 91));
+}
+
+TEST(EdgeTest, StrongNormal) {
+    // No valid subintervals exist, strong normal = weak normal
+}
+
+TEST(EdgeTest, StrongRobust) {
+    // Class9: L3, S2, B1
+    EXPECT_EQ("InvalidInput", Commission(0, 0, 1));
+    // Class10: L3, S3, B1
+    EXPECT_EQ("InvalidInput", Commission(0, 81, 1));
+    // Class11: L4, S2, B1
+    EXPECT_EQ("InvalidInput", Commission(71, 0, 1));
+    // Class12: L4, S3, B1
+    EXPECT_EQ("InvalidInput", Commission(71, 81, 1));
+    // Class13: L3, S1, B2
+    EXPECT_EQ("InvalidInput", Commission(0, 1, 0));
+    // Class14: L3, S1, B3
+    EXPECT_EQ("InvalidInput", Commission(0, 1, 91));
+    // Class15: L4, S1, B2
+    EXPECT_EQ("InvalidInput", Commission(71, 1, 0));
+    // Class16: L4, S1, B3
+    EXPECT_EQ("InvalidInput", Commission(71, 1, 91));
+    // Class17: L1, S2, B2
+    EXPECT_EQ("InvalidInput", Commission(1, 0, 0));
+    // Class18: L1, S2, B3
+    EXPECT_EQ("InvalidInput", Commission(1, 0, 91));
+    // Class19: L1, S3, B2
+    EXPECT_EQ("InvalidInput", Commission(1, 81, 0));
+    // Class20: L1, S3, B3
+    EXPECT_EQ("InvalidInput", Commission(1, 81, 91));
+    // Class21: L3, S2, B2
+    EXPECT_EQ("InvalidInput", Commission(0, 0, 0));
+    // Class22: L3, S2, B3
+    EXPECT_EQ("InvalidInput", Commission(0, 0, 91));
+    // Class23: L3, S3, B2
+    EXPECT_EQ("InvalidInput", Commission(0, 81, 0));
+    // Class24: L3, S3, B3
+    EXPECT_EQ("InvalidInput", Commission(0, 81, 91));
+    // Class25: L4, S2, B2
+    EXPECT_EQ("InvalidInput", Commission(71, 0, 0));
+    // Class26: L4, S2, B3
+    EXPECT_EQ("InvalidInput", Commission(71, 0, 91));
+    // Class27: L4, S3, B2
+    EXPECT_EQ("InvalidInput", Commission(71, 81, 0));
+    // Class28: L4, S3, B3
+    EXPECT_EQ("InvalidInput", Commission(71, 81, 91));
+
+    // Differentiate InvalidInput and ProgramTerminates
+    // Class29: L2, S2, B2
+    EXPECT_EQ("InvalidInput", Commission(-1, 0, 0));
+    // Class30: L2, S2, B3
+    EXPECT_EQ("InvalidInput", Commission(-1, 0, 91));
+    // Class31: L2, S3, B2
+    EXPECT_EQ("InvalidInput", Commission(-1, 81, 0));
+    // Class32: L2, S3, B3
+    EXPECT_EQ("InvalidInput", Commission(-1, 81, 91));
+}
