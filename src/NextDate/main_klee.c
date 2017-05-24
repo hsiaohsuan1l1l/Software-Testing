@@ -11,8 +11,10 @@ int main(void) {
     klee_make_symbolic(&d, sizeof(d), "d");
 
     // Validate the input
-    if (y < 1 || m < 1 || m > 12 || d < 1 || d > 31)
-        printf("InvalidInput");
+    if (y < 1812 || y > 2013 || m < 1 || m > 12 || d < 1 || d > 31) {
+        printf("InvalidInput\n");
+        return 0;
+    }
 
     // Distinguish the edge day
     if (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12)
@@ -25,8 +27,10 @@ int main(void) {
         edgeday = 30;
     
     // Validate the edge day
-    if (d > edgeday)
-        printf("InvalidInput");
+    if (d > edgeday) {
+        printf("InvalidInput\n");
+        return 0;
+    }
 
     // Generate next date
     if (d + 1 > edgeday) {
@@ -42,6 +46,5 @@ int main(void) {
     }
 
     printf("%d.%d.%d\n", y, m, d);
-
     return 0;
 }
