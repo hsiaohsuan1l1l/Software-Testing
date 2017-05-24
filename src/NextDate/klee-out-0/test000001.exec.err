@@ -1,0 +1,6 @@
+Error: external call with symbolic argument: printf
+File: /home/klee/Software-Testing/src/NextDate/main_klee.c
+Line: 44
+assembly.ll line: 175
+Stack: 
+	#000000175 in main () at /home/klee/Software-Testing/src/NextDate/main_klee.c:44
