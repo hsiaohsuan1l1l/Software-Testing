@@ -1,0 +1,21 @@
+klee --allow-external-sym-calls main_klee.bc
+PID: 1119
+Started: 2017-05-24 07:28:19
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2017-05-24 07:28:19
+Elapsed: 00:00:00
+KLEE: done: explored paths = 3
+KLEE: done: avg. constructs per query = 44
+KLEE: done: total queries = 8
+KLEE: done: valid queries = 0
+KLEE: done: invalid queries = 8
+KLEE: done: query cex = 8
+
+KLEE: done: total instructions = 76
+KLEE: done: completed paths = 3
+KLEE: done: generated tests = 3

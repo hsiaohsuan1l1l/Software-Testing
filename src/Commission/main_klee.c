@@ -4,7 +4,11 @@
 // Return the commission value or invalid input or program terminates
 int main(void) {
     int l, s, b;
-    double sales, comm;
+    float sales, comm;
+
+    klee_make_symbolic(&l, sizeof(l), "l");
+    klee_make_symbolic(&s, sizeof(s), "s");
+    klee_make_symbolic(&b, sizeof(b), "b");
 
     // Validate the input
     if (l < -1 || l == 0 || l > 70 || s < 1 || s > 80 || b < 1 || b > 90) {
