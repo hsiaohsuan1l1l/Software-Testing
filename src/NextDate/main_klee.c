@@ -41,7 +41,7 @@ int main(void) {
         d++;
     }
 
-    printf("%d.%d.%d", y, m, d);
+    printf("%d.%d.%d\n", y, m, d);
 
     return 0;
 }
